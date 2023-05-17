@@ -1,0 +1,32 @@
+<h1>Add New City</h1>
+<div class="mb-3">
+    City Name: <input id="cityName"/>
+</div><br/>
+<div class="mb-3">
+    Country: <input id="country"/>
+</div><br/>
+<div class="mb-3">
+    Population: <input id="population"/>
+</div><br/>
+<button onclick="addCity(document.getElementById('cityName').value, 
+        document.getElementById('country').value, 
+        document.getElementById('population').value)"
+>
+    submit
+</button>
+<h3>City list</h3> 
+<input placeholder="Search.." id="input" onkeyup="search(document.getElementById('input').value)"/>
+<div id="list"></div>
+
+<br/>
+<div class="mb-3">
+    ISBN: <input id="isbn"/> 
+    <button onclick="validateIsbn(document.getElementById('isbn').value)">validate</button>
+</div><br/>
+<div class="mb-3">
+    String: <input id="str"/> 
+    <button onclick="changeStr(document.getElementById('str').value)">change</button>
+</div>
+
+<script>var exports = {"__esModule": { value: true }}</script>
+<script src="./index.js"></script>
