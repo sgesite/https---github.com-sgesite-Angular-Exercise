@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.moveZeroToEnd = exports.validateIsbn = exports.search = exports.displayCity = exports.addCity = exports.test = void 0;
+exports.moveZeroToEnd = exports.changeStr = exports.validateIsbn = exports.search = exports.displayCity = exports.addCity = exports.test = void 0;
 const test = () => {
     console.log('Activity 1');
 };
@@ -83,25 +83,30 @@ const consonants = ['B', 'C', 'D', 'F', 'G', 'H',
     'S', 'T', 'V', 'W', 'X', 'Y', 'Z'
 ];
 const number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-function transformString(str) {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    const vowels = 'aeiou';
-    const transformedChars = str.split('').map(char => {
-        const lowercaseChar = char.toLowerCase();
-        const isVowel = vowels.includes(lowercaseChar);
-        const isConsonant = alphabet.includes(lowercaseChar);
-        if (isVowel) {
-            return char.toUpperCase();
+const changeStr = (str) => {
+    for (let i = 0; i < str.length; i++) {
+        for (let l = 0; l < alphabet.length; l++) {
+            if (alphabet[l] === str[i].toUpperCase()) {
+                for (let vowel of vowels) {
+                    if (alphabet[l + 1] === vowel) {
+                        console.log(alphabet[l + 1].toUpperCase());
+                    }
+                }
+                for (let consonant of consonants) {
+                    if (alphabet[l + 1] === consonant) {
+                        console.log(alphabet[l + 1].toLowerCase());
+                    }
+                }
+            }
         }
-        else if (isConsonant) {
-            const nextCharIndex = (alphabet.indexOf(lowercaseChar) + 1) % alphabet.length;
-            const nextChar = alphabet.charAt(nextCharIndex);
-            return char === char.toUpperCase() ? nextChar.toUpperCase() : nextChar;
+        for (let num of number) {
+            if (str[i] === num) {
+                console.log(num);
+            }
         }
-        return char;
-    });
-    return transformedChars.join('');
-}
+    }
+};
+exports.changeStr = changeStr;
 //Item no. 4
 const array = [false, 1, 0, 1, 2, 0, 1, 3, 'a'];
 const moveZeroToEnd = (array) => {
