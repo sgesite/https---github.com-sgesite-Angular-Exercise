@@ -83,29 +83,25 @@ const consonants = ['B', 'C', 'D', 'F', 'G', 'H',
     'S', 'T', 'V', 'W', 'X', 'Y', 'Z'
 ];
 const number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const changeStr = (str) => {
-    for (let i = 0; i < str.length; i++) {
-        for (let l = 0; l < alphabet.length; l++) {
-            if (alphabet[l] === str[i].toUpperCase()) {
-                for (let vowel of vowels) {
-                    if (alphabet[l + 1] === vowel) {
-                        console.log(alphabet[l + 1].toUpperCase());
-                    }
-                }
-                for (let consonant of consonants) {
-                    if (alphabet[l + 1] === consonant) {
-                        console.log(alphabet[l + 1].toLowerCase());
-                    }
-                }
-            }
+function transformString(str) {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const vowels = 'aeiou';
+    const transformedChars = str.split('').map(char => {
+        const lowercaseChar = char.toLowerCase();
+        const isVowel = vowels.includes(lowercaseChar);
+        const isConsonant = alphabet.includes(lowercaseChar);
+        if (isVowel) {
+            return char.toUpperCase();
         }
-        for (let num of number) {
-            if (str[i] === num) {
-                console.log(num);
-            }
+        else if (isConsonant) {
+            const nextCharIndex = (alphabet.indexOf(lowercaseChar) + 1) % alphabet.length;
+            const nextChar = alphabet.charAt(nextCharIndex);
+            return char === char.toUpperCase() ? nextChar.toUpperCase() : nextChar;
         }
-    }
-};
+        return char;
+    });
+    return transformedChars.join('');
+}
 //Item no. 4
 const array = [false, 1, 0, 1, 2, 0, 1, 3, 'a'];
 const moveZeroToEnd = (array) => {
