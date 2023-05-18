@@ -117,7 +117,8 @@ export const changeStr = (str : string) => {
             }
         }
     }
-} 
+}
+ 
 
 //Item no. 4
 const array = [false, 1, 0, 1, 2, 0, 1, 3, 'a'];
