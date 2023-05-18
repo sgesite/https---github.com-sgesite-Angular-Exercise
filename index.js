@@ -71,6 +71,7 @@ const validateIsbn = (isbn) => {
         console.log(false);
     }
 };
+
 exports.validateIsbn = validateIsbn;
 //Item no. 3
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
